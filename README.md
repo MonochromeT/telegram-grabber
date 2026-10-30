@@ -47,7 +47,7 @@ It simply clicks Telegram's own *Download* entry for you, so the download works 
 
 The extension is not in the Chrome Web Store (yet), so it is installed as an "unpacked extension":
 
-1. Download the latest ZIP from [Releases](../../releases) and unpack it.
+1. Download the latest ZIP from [Releases](../../releases) - or use the green **Code** button → **Download ZIP** - and unpack it.
 2. **Windows:** double-click `install.bat`. It copies the extension to `%LOCALAPPDATA%\Telegram-Grabber`,
    puts that path into your clipboard and opens the Brave extensions page.
    **Other systems:** use the `extension` folder directly.
