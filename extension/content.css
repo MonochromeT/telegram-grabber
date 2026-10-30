@@ -1,0 +1,21 @@
+/* Telegram Grabber - injected styles (all prefixed with tgg-) */
+.tgg-host { position: relative !important; }
+.tgg-check {
+  position: absolute; top: 8px; right: 8px; z-index: 50;
+  width: 26px; height: 26px; border-radius: 7px; box-sizing: border-box;
+  border: 2px solid rgba(255,255,255,.95); background: rgba(18,20,24,.55);
+  box-shadow: 0 1px 4px rgba(0,0,0,.45); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .1s, background .15s;
+}
+.tgg-check:hover { transform: scale(1.08); background: rgba(18,20,24,.75); }
+.tgg-check.tgg-doc { top: 50%; margin-top: -13px; }
+.tgg-check.tgg-grid { top: 5px; right: 5px; width: 24px; height: 24px; }
+.tgg-check::after { content: ""; width: 12px; height: 6px; border: solid transparent; border-width: 0 0 3px 3px; transform: translateY(-2px) rotate(-45deg); }
+.tgg-check.on { background: #9b6bff; border-color: #9b6bff; }
+.tgg-check.on::after, .tgg-check.queued::after, .tgg-check.done::after { border-color: #fff; }
+.tgg-check.queued { background: #f0b44c; border-color: #f0b44c; }
+.tgg-check.done { background: #3ecf8e; border-color: #3ecf8e; }
+.tgg-check.locked { opacity: .45; cursor: not-allowed; }
+.tgg-check.locked::after { content: "\1F512"; border: 0; width: auto; height: auto; transform: none; font-size: 12px; }
+

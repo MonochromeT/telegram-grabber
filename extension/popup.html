@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Telegram Grabber</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon32.png" alt="" width="20" height="20">
+    <h1>Telegram Grabber</h1>
+    <nav>
+      <button class="tab active" data-tab="videos">Videos <span id="cntSel" class="count"></span></button>
+      <button class="tab" data-tab="downloads">Downloads <span id="cntJobs" class="count"></span></button>
+      <button class="tab icon" data-tab="settings" title="Settings">&#9881;</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="videos" class="panel active">
+      <div id="notTelegram" class="empty" style="display:none">
+        <p>Open a chat on Telegram Web to use the grabber.</p>
+        <button id="openTg" class="btn small" style="margin-top:8px">Open Telegram Web</button>
+      </div>
+      <div id="tgView">
+        <div class="chatline"><span id="chatName"></span><span id="appVer" class="muted"></span></div>
+        <div class="row actions-row">
+          <button id="selAll" class="btn small ghost">Select all</button>
+          <button id="selClear" class="btn small ghost">Clear</button>
+          <button id="start" class="btn">Download</button>
+        </div>
+        <label class="check small-check">
+          <input id="inclDone" type="checkbox">
+          <span>"Select all" includes already downloaded videos</span>
+        </label>
+        <div id="itemList"></div>
+        <div id="emptyItems" class="empty">
+          <p>No videos visible in this chat yet.</p>
+          <p class="muted">Scroll through the chat or open Shared Media - videos get a checkbox as soon as they are loaded.</p>
+        </div>
+        <p class="muted note">Tip: In the group profile, "Shared Media" shows all videos as a grid - you can tick them there too.</p>
+      </div>
+    </section>
+
+    <section id="downloads" class="panel">
+      <div id="jobList"></div>
+      <div id="emptyJobs" class="empty"><p>No downloads yet.</p></div>
+      <div class="footer-row two" id="jobFooter">
+        <button id="stopQueue" class="link">Stop queue</button>
+        <button id="cleanJobs" class="link">Remove finished</button>
+      </div>
+    </section>
+
+    <section id="settings" class="panel">
+      <label class="field">
+        <span>Subfolder inside your download folder</span>
+        <input id="setFolder" type="text" placeholder="e.g. Telegram Tutorials (empty = download folder)">
+      </label>
+      <div class="field">
+        <span>Videos downloading at the same time</span>
+        <div class="slider-row">
+          <input id="setPar" type="range" min="1" max="5" step="1">
+          <input id="setParNum" type="number" min="1" max="5" step="1">
+        </div>
+      </div>
+      <div class="field">
+        <span>Download history</span>
+        <div class="row"><span id="histCount" class="muted" style="flex:1"></span><button id="histClear" class="btn small ghost">Forget all</button></div>
+      </div>
+      <p class="muted note"><b>Brave asks for every file?</b> Turn off "Ask where to save each file before downloading" in Brave: Settings &rarr; Downloads. Then all videos go straight into the subfolder.</p>
+      <p class="muted note">Only works on web.telegram.org. The extension has no access to other websites.</p>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
